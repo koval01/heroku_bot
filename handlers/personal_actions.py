@@ -1,4 +1,7 @@
 from aiogram import types
 from dispatcher import dp
-import config
 
+
+@dp.message_handler()
+async def echo_message(msg: types.Message):
+    await msg.reply("Hello!")
