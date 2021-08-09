@@ -1,7 +1,7 @@
 from aiogram import types
 from dispatcher import dp
-from ..utils import porfirevich
-from ..dispatcher import bot
+from utils import porfirevich
+from dispatcher import bot
 
 
 @dp.message_handler()
