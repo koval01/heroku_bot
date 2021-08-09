@@ -29,10 +29,12 @@ def striphtml(data: str) -> str:
 
 
 async def telegraph_create(text: str) -> str:
+    text = striphtml(text)
+
     telegraph = Telegraph()
     telegraph.create_account(short_name='dark_fantasy0_bot')
 
-    title_text = striphtml(text)
+    title_text = text
 
     if len(title_text) > 16:
         title_text = title_text[:13] + "..."
