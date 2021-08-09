@@ -1,4 +1,5 @@
 aiogram>=2.14.3
+telegraph>=1.4.1
 wheel
 setuptools
 pip
