@@ -16,7 +16,7 @@ async def porfirevich(user_text):
 
     try:
         async with aiohttp.ClientSession() as session:
-            async with session.get(url, headers=headers, json=json) as resp:
-                return loads(await resp.text())
+            async with session.post(url, headers=headers, json=json) as resp:
+                return loads(await resp.text())["replies"][0]
     except aiohttp.ClientError as e:
         logging.error("%s: %s" % (porfirevich.__name__, e))
