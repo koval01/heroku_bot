@@ -6,9 +6,9 @@ from dispatcher import bot
 
 async def send_(msg: object) -> None:
     await bot.send_chat_action(msg.from_user.id, 'typing')
-    add_ = await porfirevich("Феминизм это")
+    add_ = await porfirevich(msg.text)
 
-    text_ = "<i>%s</i><b>%s</b>" % ("Феминизм это", add_)
+    text_ = "<i>%s</i><b>%s</b>" % (msg.text, add_)
     telegraph_ = await telegraph_create(text_)
     link = await create_inline_buttons(
         {"text": "Telegra.ph", "url": telegraph_}
