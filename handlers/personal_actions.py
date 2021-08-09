@@ -10,8 +10,8 @@ async def echo_message(msg: types.Message):
     add_ = await porfirevich(msg.text)
 
     text_ = "<i>%s</i><b>%s</b>" % (msg.text, add_)
-    telegraph_ = telegraph_create(text_)
-    link = create_inline_buttons(
+    telegraph_ = await telegraph_create(text_)
+    link = await create_inline_buttons(
         {"text": "Telegra.ph", "url": telegraph_}
     )
 

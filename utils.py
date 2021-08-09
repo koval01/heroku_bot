@@ -46,7 +46,7 @@ async def telegraph_create(text: str) -> str:
     return 'https://telegra.ph/' + response['path']
 
 
-def create_inline_buttons(*button) -> str:
+async def create_inline_buttons(*button) -> str:
     array_button = []
     global_array_buttons = []
 
