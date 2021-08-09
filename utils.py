@@ -4,8 +4,14 @@ import aiohttp, logging
 
 
 async def porfirevich(user_text):
-    headers = {"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15"}
-    json = {"prompt": user_text, "length": randint(10, 60), "num_samples": 1}
+    headers = {
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15"
+    }
+    json = {
+        "prompt": user_text,
+        "length": randint(10, 60),
+        "num_samples": 1
+    }
     url = "https://pelevin.gpt.dobro.ai/generate/"
 
     try:
