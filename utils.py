@@ -9,4 +9,4 @@ async def porfirevich(user_text):
             "length": randint(10, 60),
             "num_samples": 1,
         }) as resp:
-            return await resp.text()
+            return await resp.json()["replies"][0]
