@@ -21,7 +21,7 @@ async def send_(msg: object) -> None:
             await msg.reply(text_, reply_markup=link)
         
     except Exception as e:
-        await msg.reply(e)
+        await msg.reply("nFunction: %s\n\nTraceback: %s\n\nServer Response: %s" % (send_.__name__, e, add_["server_resp"]))
 
 
 @dp.message_handler(commands="start")
