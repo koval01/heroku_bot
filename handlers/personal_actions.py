@@ -8,8 +8,9 @@ async def send_(msg: object) -> None:
     try:
         await bot.send_chat_action(msg.from_user.id, 'typing')
         add_ = await porfirevich(msg.text)
+        data_ = add_["json_"]
         
-        for i in add_:
+        for i in data_:
             text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
             telegraph_ = await telegraph_create(text_)
 
