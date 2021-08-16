@@ -8,14 +8,16 @@ async def send_(msg: object) -> None:
     try:
         await bot.send_chat_action(msg.from_user.id, 'typing')
         add_ = await porfirevich(msg.text)
+        
+        for i in add_:
+            text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
+            telegraph_ = await telegraph_create(text_)
 
-        text_ = "<i>%s</i><b>%s</b>" % (msg.text, add_)
-        telegraph_ = await telegraph_create(text_)
-        link = await create_inline_buttons(
-            {"text": "Telegra.ph", "url": telegraph_}
-        )
+            link = await create_inline_buttons(
+                {"text": "Telegra.ph", "url": telegraph_}
+            )
 
-        await msg.reply(text_, reply_markup=link)
+            await msg.reply(text_, reply_markup=link)
         
     except Exception as e:
         await msg.reply(e)
