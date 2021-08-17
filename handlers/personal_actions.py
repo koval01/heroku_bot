@@ -23,14 +23,16 @@ async def send_(msg: object) -> None:
                 group_name = msg.chat.title
 
             for i in data_:
+                text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
+
                 if group_name:
-                    text_ = "<i>%s</i><b>%s</b>\n\n<b>Сгенерировано участником группы «%s» - «%s»</b>"\
+                    text_ph = "<i>%s</i><b>%s</b>\n\n<b>Сгенерировано участником группы «%s» - «%s»</b>"\
                             % (msg.text, i, group_name, msg.from_user.full_name)
 
                 else:
-                    text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
+                    text_ph = text_
 
-                telegraph_ = await telegraph_create(text_)
+                telegraph_ = await telegraph_create(text_ph)
 
                 link = await create_inline_buttons(
                     {"text": "Telegra.ph", "url": telegraph_}
