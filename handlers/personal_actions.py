@@ -48,12 +48,11 @@ async def send_(msg: object) -> None:
             await asyncio.sleep(5)  # sleep five seconds
 
         except Exception as e:
-            if msg.chat.type == "private":
-                await msg.reply(
-                    "Traceback: <code>%s</code>" % e,
-                )
+            await msg.reply(
+                "Traceback: <code>%s</code>" % e,
+            )
 
-            else:break
+            if msg.chat.type != "private":break
 
         else:break
 
