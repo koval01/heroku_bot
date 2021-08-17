@@ -19,7 +19,7 @@ async def send_(msg: object) -> None:
             data_ = add_["json_"]
 
             if msg.chat.type != "private":
-                data_ = choice(data_)
+                data_ = choice(eval(data_))
 
             print(data_)
 
