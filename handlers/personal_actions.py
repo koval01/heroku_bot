@@ -13,10 +13,6 @@ async def send_(msg: object) -> None:
 
     while True:
         try:
-            await bot.send_chat_action(msg.chat.id, 'typing')
-
-            add_ = await porfirevich(msg.text)
-            data_ = add_["json_"]
             group_name = None
 
             if msg.chat.type != "private":
@@ -27,6 +23,11 @@ async def send_(msg: object) -> None:
                     group_name = msg.chat.title
 
                 else:break
+
+            await bot.send_chat_action(msg.chat.id, 'typing')
+
+            add_ = await porfirevich(msg.text)
+            data_ = add_["json_"]
 
             for i in data_:
                 msg.text = msg.text.replace(me, "")
