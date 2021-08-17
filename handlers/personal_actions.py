@@ -14,9 +14,9 @@ async def send_(msg: object) -> None:
     while True:
         try:
             group_name = None
+            me = "@" + me["username"]
 
             if msg.chat.type != "private":
-                me = "@"+me["username"]
                 if me not in msg.text:break
 
             await bot.send_chat_action(msg.chat.id, 'typing')
