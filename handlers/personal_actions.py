@@ -5,7 +5,6 @@ from dispatcher import dp
 from utils import porfirevich, telegraph_create, create_inline_buttons
 from telegraph.exceptions import TelegraphException
 from dispatcher import bot
-from bs4 import BeautifulSoup
 
 
 async def send_(msg: object) -> None:
