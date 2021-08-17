@@ -41,7 +41,6 @@ async def send_(msg: object) -> None:
                         text_ = s + "</i>..."
 
                     else:
-                        soup = BeautifulSoup(text_, 'lxml')
                         pass
 
                 telegraph_ = await telegraph_create(text_ph)
