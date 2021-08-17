@@ -5,7 +5,6 @@ from dispatcher import dp
 from utils import porfirevich, telegraph_create, create_inline_buttons
 from telegraph.exceptions import TelegraphException
 from dispatcher import bot
-from random import choice
 
 
 async def send_(msg: object) -> None:
@@ -19,9 +18,7 @@ async def send_(msg: object) -> None:
             data_ = add_["json_"]
 
             if msg.chat.type != "private":
-                data_ = choice(eval(str(data_)))
-
-            print(data_)
+                data_ = data_[0]
 
             for i in data_:
                 text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
