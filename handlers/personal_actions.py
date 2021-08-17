@@ -16,13 +16,20 @@ async def send_(msg: object) -> None:
 
             add_ = await porfirevich(msg.text)
             data_ = add_["json_"]
+            group_name = None
 
             if msg.chat.type != "private":
                 data_ = data_[0]
-                print(msg)
+                group_name = msg.chat.title
 
             for i in data_:
-                text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
+                if group_name:
+                    text_ = "<i>%s</i><b>%s</b>\n\n<b>Сгенерировано участником группы «%s» - «%s»</b>"\
+                            % (msg.text, i, group_name, msg.chat.full_name)
+
+                else:
+                    text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
+
                 telegraph_ = await telegraph_create(text_)
 
                 link = await create_inline_buttons(
