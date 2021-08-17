@@ -64,6 +64,7 @@ async def send_(msg: object) -> None:
 
 @dp.message_handler(commands="start")
 async def cmd_ping_bot(msg: types.Message):
+    print(msg.text)
     msg.text = "Лера любила гулять"
     await send_(msg)
 
