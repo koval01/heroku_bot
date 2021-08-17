@@ -2,7 +2,7 @@ import logging, asyncio
 
 from aiogram import types
 from dispatcher import dp
-from utils import porfirevich, telegraph_create, create_inline_buttons
+from utils import porfirevich, telegraph_create, create_inline_buttons, striphtml
 from telegraph.exceptions import TelegraphException
 from dispatcher import bot
 
@@ -26,14 +26,23 @@ async def send_(msg: object) -> None:
                 text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
 
                 if group_name:
-                    text_ph = "<i>%s</i><b>%s</b> | <b>Сгенерировано участником группы «%s» - «%s»</b>"\
-                            % (msg.text, i, group_name, msg.from_user.full_name)
+                    text_ph = "<i>%s</i><b>%s</b> | <b>Сгенерировано участником группы «%s» - «%s»</b>" \
+                              % (msg.text, i, group_name, msg.from_user.full_name)
 
                 else:
                     text_ph = text_
 
-                if len(text_) > 200:
-                    text_ = text_[:197] + "..."
+                len_clear_text = len(msg.text + i)
+                if len_clear_text > 200:
+                    s = text_[:197]
+
+                    if len(msg.text) > 200:
+                        text_ = s + "</i>..."
+
+                    else:
+                        text_ = s.replace(
+                            "<", "").replace("</", "").replace(
+                            "</i", "").replace("</b", "")
 
                 telegraph_ = await telegraph_create(text_ph)
 
@@ -52,9 +61,10 @@ async def send_(msg: object) -> None:
                 "Traceback: <code>%s</code>" % e,
             )
 
-            if msg.chat.type != "private":break
+            if msg.chat.type != "private": break
 
-        else:break
+        else:
+            break
 
 
 @dp.message_handler(commands="start")
