@@ -8,7 +8,7 @@ from dispatcher import bot
 
 
 async def send_(msg: object) -> None:
-    logging.info("Message by (%d) %s" % (msg.chat.id, msg.chat.username))
+    logging.info("Message by (%d)" % msg.chat.id)
 
     while True:
         try:
