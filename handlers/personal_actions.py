@@ -8,6 +8,8 @@ from dispatcher import bot
 
 
 async def send_(msg: object) -> None:
+    logging.info("Message by (%d) %s" % (msg.chat.id, msg.chat.username))
+
     while True:
         try:
             await bot.send_chat_action(msg.from_user.id, 'typing')
