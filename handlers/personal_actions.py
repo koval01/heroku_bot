@@ -32,8 +32,7 @@ async def send_(msg: object) -> None:
 
         except Exception as e:
             await msg.reply(
-                "Traceback: <code>%s</code>\n\nServer Response: <code>%s</code>"
-                % (e, add_["server_resp"]),
+                "Traceback: <code>%s</code>" % e,
             )
 
         else:break
