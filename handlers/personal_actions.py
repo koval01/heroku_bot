@@ -32,16 +32,6 @@ async def send_(msg: object) -> None:
                 else:
                     text_ph = text_
 
-                len_clear_text = len(msg.text + i)
-                if len_clear_text > 200:
-                    s = text_[:197]
-
-                    if len(msg.text) > 200:
-                        text_ = s + "</i>..."
-
-                    else:
-                        pass
-
                 telegraph_ = await telegraph_create(text_ph)
 
                 link = await create_inline_buttons(
