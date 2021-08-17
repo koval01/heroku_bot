@@ -19,6 +19,7 @@ async def send_(msg: object) -> None:
 
             if msg.chat.type != "private":
                 data_ = data_[0]
+                print(msg)
 
             for i in data_:
                 text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
