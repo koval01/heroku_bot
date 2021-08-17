@@ -5,16 +5,21 @@ from dispatcher import dp
 from utils import porfirevich, telegraph_create, create_inline_buttons
 from telegraph.exceptions import TelegraphException
 from dispatcher import bot
+from random import choice
 
 
-async def send_(msg: object) -> None:
+async def send_(msg: object, group_: bool) -> None:
     logging.info("Message by (%d)" % msg.chat.id)
 
     while True:
         try:
             await bot.send_chat_action(msg.from_user.id, 'typing')
+
             add_ = await porfirevich(msg.text)
             data_ = add_["json_"]
+
+            if group_:
+                data_ = choice(data_)
 
             for i in data_:
                 text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
@@ -28,7 +33,7 @@ async def send_(msg: object) -> None:
 
         except TelegraphException as e:
             logging.debug(e)
-            await asyncio.sleep(5)  # sleep one second
+            await asyncio.sleep(5)  # sleep five seconds
 
         except Exception as e:
             await msg.reply(
@@ -40,7 +45,7 @@ async def send_(msg: object) -> None:
 
 @dp.message_handler(commands="start")
 async def cmd_ping_bot(msg: types.Message):
-    msg.text = "Феминизм это"
+    msg.text = "Лера любила гулять"
     await send_(msg)
 
 
