@@ -9,7 +9,7 @@ from dispatcher import bot
 
 async def send_(msg: object) -> None:
     logging.info("Message by (%d)" % msg.chat.id)
-    me = await bot.get_me()["username"]
+    me = await bot.get_me()
 
     while True:
         try:
@@ -20,7 +20,7 @@ async def send_(msg: object) -> None:
             group_name = None
 
             if msg.chat.type != "private":
-                me = "@"+me
+                me = "@"+me["username"]
 
                 if me in msg.text:
                     data_ = data_[0:1]
