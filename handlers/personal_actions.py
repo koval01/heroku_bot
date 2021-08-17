@@ -13,12 +13,12 @@ async def send_(msg: object, group_: bool) -> None:
 
     while True:
         try:
-            await bot.send_chat_action(msg.from_user.id, 'typing')
+            await bot.send_chat_action(msg.chat.id, 'typing')
 
             add_ = await porfirevich(msg.text)
             data_ = add_["json_"]
 
-            if group_:
+            if types.ChatType.is_group_or_super_group(msg):
                 data_ = choice(data_)
 
             for i in data_:
