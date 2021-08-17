@@ -18,7 +18,8 @@ async def send_(msg: object) -> None:
             add_ = await porfirevich(msg.text)
             data_ = add_["json_"]
 
-            if types.ChatType.is_group_or_super_group(msg):
+            if bot.get_chat(msg.chat.id):
+                print(bot.get_chat(msg.chat.id))
                 data_ = choice(data_)
 
             for i in data_:
