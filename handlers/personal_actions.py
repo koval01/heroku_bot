@@ -6,7 +6,6 @@ from utils import porfirevich, telegraph_create, create_inline_buttons
 from telegraph.exceptions import TelegraphException
 from dispatcher import bot
 from random import choice
-from json import loads, dumps
 
 
 async def send_(msg: object) -> None:
@@ -20,7 +19,7 @@ async def send_(msg: object) -> None:
             data_ = add_["json_"]
 
             if msg.chat.type != "private":
-                data_ = choice(loads(dumps(data_)))
+                data_ = choice(eval(str(data_)))
 
             print(data_)
 
@@ -43,6 +42,8 @@ async def send_(msg: object) -> None:
                 await msg.reply(
                     "Traceback: <code>%s</code>" % e,
                 )
+
+            else:break
 
         else:break
 
