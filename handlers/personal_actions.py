@@ -9,6 +9,7 @@ from dispatcher import bot
 
 async def send_(msg: object) -> None:
     logging.info("Message by (%d)" % msg.chat.id)
+    print(await bot.get_me())
 
     while True:
         try:
