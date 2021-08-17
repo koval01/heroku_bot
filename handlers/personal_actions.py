@@ -26,7 +26,7 @@ async def send_(msg: object) -> None:
                 text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
 
                 if group_name:
-                    text_ph = "<i>%s</i><b>%s</b><br/><br/><b>Сгенерировано участником группы «%s» - «%s»</b>"\
+                    text_ph = "<i>%s</i><b>%s</b> | <b>Сгенерировано участником группы «%s» - «%s»</b>"\
                             % (msg.text, i, group_name, msg.from_user.full_name)
 
                 else:
