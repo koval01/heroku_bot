@@ -29,6 +29,7 @@ async def send_(msg: object) -> None:
                 else:break
 
             for i in data_:
+                msg.text = msg.text.replace(me, "")
                 text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
 
                 if group_name:
