@@ -28,7 +28,7 @@ async def send_(msg: object) -> None:
 
         except TelegraphException as e:
             logging.debug(e)
-            await asyncio.sleep(1)  # sleep one second
+            await asyncio.sleep(5)  # sleep one second
 
         except Exception as e:
             await msg.reply(
