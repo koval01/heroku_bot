@@ -18,9 +18,10 @@ async def send_(msg: object) -> None:
             add_ = await porfirevich(msg.text)
             data_ = add_["json_"]
 
-            if await bot.get_chat(msg.chat.id):
-                print(await bot.get_chat(msg.chat.id))
+            if msg.chat.type != "private":
                 data_ = choice(data_)
+
+            print(data_)
 
             for i in data_:
                 text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
