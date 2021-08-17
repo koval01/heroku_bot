@@ -3,3 +3,5 @@ telegraph>=1.4.1
 wheel
 setuptools
 pip
+beautifulsoup4>=4.9.3
+lxml>=4.6.3

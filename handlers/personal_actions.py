@@ -2,9 +2,10 @@ import logging, asyncio
 
 from aiogram import types
 from dispatcher import dp
-from utils import porfirevich, telegraph_create, create_inline_buttons, striphtml
+from utils import porfirevich, telegraph_create, create_inline_buttons
 from telegraph.exceptions import TelegraphException
 from dispatcher import bot
+from bs4 import BeautifulSoup
 
 
 async def send_(msg: object) -> None:
@@ -40,9 +41,8 @@ async def send_(msg: object) -> None:
                         text_ = s + "</i>..."
 
                     else:
-                        text_ = s.replace(
-                            "<", "").replace("</", "").replace(
-                            "</i", "").replace("</b", "")
+                        soup = BeautifulSoup(text_, 'lxml')
+                        pass
 
                 telegraph_ = await telegraph_create(text_ph)
 
