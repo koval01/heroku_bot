@@ -25,7 +25,7 @@ async def send_(msg: object) -> None:
             for i in data_:
                 if group_name:
                     text_ = "<i>%s</i><b>%s</b>\n\n<b>Сгенерировано участником группы «%s» - «%s»</b>"\
-                            % (msg.text, i, group_name, msg.chat.full_name)
+                            % (msg.text, i, group_name, msg.from_user.full_name)
 
                 else:
                     text_ = "<i>%s</i><b>%s</b>" % (msg.text, i)
