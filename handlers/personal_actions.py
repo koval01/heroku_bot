@@ -19,7 +19,7 @@ async def send_(msg: object) -> None:
             group_name = None
 
             if msg.chat.type != "private":
-                data_ = data_[0]
+                data_ = data_[0:1]
                 group_name = msg.chat.title
 
             for i in data_:
