@@ -8,7 +8,7 @@ from dispatcher import bot
 from random import choice
 
 
-async def send_(msg: object, group_: bool) -> None:
+async def send_(msg: object) -> None:
     logging.info("Message by (%d)" % msg.chat.id)
 
     while True:
