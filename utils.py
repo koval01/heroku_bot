@@ -10,8 +10,8 @@ async def porfirevich(user_text: str) -> str:
     }
     json = {
         "prompt": user_text,
-        "length": randint(30, 60),
-        "num_samples": 5
+        "length": randint(50, 60),
+        "num_samples": 1
     }
     url = "https://pelevin.gpt.dobro.ai/generate/"
 
